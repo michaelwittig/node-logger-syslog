@@ -23,7 +23,7 @@ function SyslogEndpoint(debug, info, error, critial, tag, facility, hostname, po
 }
 util.inherits(SyslogEndpoint, logger.Endpoint);
 SyslogEndpoint.prototype.log = function(log, errCallback) {
-	var data = log.date.toUTCString() + " " + color(log.level) + ": ";
+	var data = log.date.toUTCString() + " " + log.level + ": ";
 	if (log.fullOrigin !== undefined) {
 		data += "(" + log.origin + " | " + log.fullOrigin.script + "[" + log.fullOrigin.fn + "]:" + log.fullOrigin.line + ") ";
 	} else if (log.origin !== undefined) {

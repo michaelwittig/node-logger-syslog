@@ -1,12 +1,10 @@
 {
 	"name": "cinovo-logger-syslog",
-	"version": "0.0.3",
-	"description": "Syslog Endpoint for cinovo-logger",
+	"version": "0.0.4",
+	"description": "Syslog endpoint for cinovo-logger.",
 	"keywords": [
 		"logger",
-		"endpoint",
-		"syslog",
-		"cinovo-logger"
+		"syslog"
 	],
 	"author": {
 		"name": "Michael Wittig",

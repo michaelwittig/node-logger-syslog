@@ -1,48 +1,66 @@
-Syslog Endpoint for cinovo-logger.
+`````
+                                                   ___
+       __                                         /\_ \
+  ___ /\_\    ___     ___   __  __    ___         \//\ \     ___      __      __      __   _ __
+ /'___\/\ \ /' _ `\  / __`\/\ \/\ \  / __`\  _______\ \ \   / __`\  /'_ `\  /'_ `\  /'__`\/\`'__\
+/\ \__/\ \ \/\ \/\ \/\ \L\ \ \ \_/ |/\ \L\ \/\______\\_\ \_/\ \L\ \/\ \L\ \/\ \L\ \/\  __/\ \ \/
+\ \____\\ \_\ \_\ \_\ \____/\ \___/ \ \____/\/______//\____\ \____/\ \____ \ \____ \ \____\\ \_\
+ \/____/ \/_/\/_/\/_/\/___/  \/__/   \/___/          \/____/\/___/  \/___L\ \/___L\ \/____/ \/_/
+                                                                      /\____/ /\____/
+                                                                      \_/__/  \_/__/
+`````
 
-# Getting started
+# cinovo-logger-syslog
 
-## At first you must require the logger.
+Syslog endpoint for [cinovo-logger](https://github.com/cinovo/node-logger).
 
-    var logger = require("cinovo-logger");
+## Getting started
 
-## How to append the cinovo-logger-syslog Endpoint
+### At first you must install and require the logger.
 
-    var logger = require("cinovo-logger");
-    logger.append(require("cinovo-logger-syslog")(true, true, true, true, tag, facility, hostname, port));
+    npm install cinovo-logger
 
-## How to use the logger
+### Next you must require the module
 
-### debug
+`````javascript
+var logger = require("cinovo-logger");
+`````
 
-    logger.debug("myscript", "all values are ok", {a: 1, b: 2});
+### Append cinovo-logger-syslog endpoint
 
-### info
+	npm install cinovo-logger-syslog
 
-    logger.info("myscript", "all values are ok", {a: 1, b: 2});
+In your JavaScript code append the syslog endpoint.
 
-### error
+`````javascript
+logger.append(require("cinovo-logger-syslog")(true, true, true, true, TODO));
+`````
 
-    logger.error("myscript", "some values are not ok", {a: 1, b: 2});
-    logger.exception("myscript", "some values are not ok", new Error("values are not ok"));
+### Log something
 
-### critical
+`````javascript
+logger.debug("all values are ok");
+logger.info("myscript", "all values are ok");
+logger.error("myscript", "some values are not ok", {a: 10, b: 20});
+logger.exception("myscript", "some values are not ok", new Error("error"));
+logger.critical("myscript", "all values are not ok", {a: 10, b: 20}, function(err) { ... });
+`````
 
-    logger.critical("myscript", "all values are not ok", {a: 1, b: 2});
+### Done
 
-# Syslog Endpoint
+Now you can log to console endpoint.
 
-The Syslog Endpoint logs to syslog.
+## API
 
-## Configuration
+### (debug, info, error, critial, tag, facility, hostname, port)
 
-If you set `debug` to `true` you will see debug logs.
-If you set `info` to `true` you will see info logs.
-If you set `error` to `true` you will see error logs.
-If you set `critical` to `true` you will see critical logs.
-`tag` syslog tag
-`facility` syslog facility
-`hostname` syslog hostname
-`port` syslog port
+Creates a console Endpoint.
 
-    logger.append(require("cinovo-logger-syslog")(true, true, true, true, tag, facility, hostname, port));
+* `debug`: Boolean - true if the endpoint should log debug level
+* `info`: Boolean - true if the endpoint should log info level
+* `error`: Boolean - true if the endpoint should log error level
+* `critical`: Boolean - true if the endpoint should log critical level
+* `tag`: String Syslog allows programs to supply an identifying string, known as a tag
+* `facility`: String["auth", "authpriv", "deemon", "cron", "ftp", "lpr", "kern", "mail", "news", "syslog", "user", "uucp", "local0", ... , "local7"]
+* `hostname`: String
+* `port`: Number

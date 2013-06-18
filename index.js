@@ -1,6 +1,7 @@
 var util = require("util"),
 	Ain2 = require("ain2"),
-	logger = require("cinovo-logger");
+	logger = require("cinovo-logger"),
+	assert = require("assert-plus");
 
 function getSyslogLevel(level) {
 	switch(level) {
@@ -43,6 +44,10 @@ SyslogEndpoint.prototype.log = function(log, errCallback) {
 };
 
 module.exports = function(debug, info, error, critial, tag, facility, hostname, port) {
+	assert.string(tag, "tag");
+	assert.string(facility, "facility");
+	assert.string(hostname, "hostname");
+	assert.number(port, "port");
 	return new SyslogEndpoint(debug, info, error, critial, tag, facility, hostname, port);
 };
 

@@ -1,6 +1,6 @@
 {
 	"name": "cinovo-logger-syslog",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Syslog endpoint for cinovo-logger.",
 	"keywords": [
 		"logger",
@@ -21,7 +21,7 @@
 		"url": "https://github.com/cinovo/node-logger-syslog.git"
 	},
 	"dependencies": {
-		"cinovo-logger": "0.1.x",
+		"cinovo-logger": "0.2.x",
 		"ain2": "1.2.1",
 		"assert-plus": "0.1.3"
 	},

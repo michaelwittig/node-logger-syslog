@@ -42,6 +42,9 @@ SyslogEndpoint.prototype.log = function(log, errCallback) {
 	this.ain2.send(data, getSyslogLevel(log.level));
 	errCallback();
 };
+SyslogEndpoint.prototype.stop = function(log, errCallback) {
+	errCallback();
+};
 
 module.exports = function(debug, info, error, critial, tag, facility, hostname, port) {
 	assert.string(tag, "tag");

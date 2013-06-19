@@ -43,7 +43,11 @@ SyslogEndpoint.prototype.log = function(log, errCallback) {
 	errCallback();
 };
 SyslogEndpoint.prototype.stop = function(log, errCallback) {
-	errCallback();
+	try {
+		errCallback();
+	} finally  {
+		this.emit("stop");
+	}
 };
 
 module.exports = function(debug, info, error, critial, tag, facility, hostname, port) {

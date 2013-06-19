@@ -66,3 +66,9 @@ Sync creates a console Endpoint.
 * `port`: Number
 
 `return`: Endpoint - Endpoint - use the endpoint like this logger.append(endpoint)
+
+### Events
+
+#### stop()
+
+When the endpoint is stopped.

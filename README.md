@@ -54,7 +54,7 @@ Now you can log to console endpoint.
 
 ### (debug, info, error, critial, tag, facility, hostname, port)
 
-Creates a console Endpoint.
+Sync creates a console Endpoint.
 
 * `debug`: Boolean - true if the endpoint should log debug level
 * `info`: Boolean - true if the endpoint should log info level
@@ -64,3 +64,5 @@ Creates a console Endpoint.
 * `facility`: String["auth", "authpriv", "deemon", "cron", "ftp", "lpr", "kern", "mail", "news", "syslog", "user", "uucp", "local0", ... , "local7"]
 * `hostname`: String
 * `port`: Number
+
+`return`: Endpoint - Endpoint - use the endpoint like this logger.append(endpoint)

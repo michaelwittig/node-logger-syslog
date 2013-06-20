@@ -42,7 +42,7 @@ SyslogEndpoint.prototype.log = function(log, errCallback) {
 	this.ain2.send(data, getSyslogLevel(log.level));
 	errCallback();
 };
-SyslogEndpoint.prototype.stop = function(log, errCallback) {
+SyslogEndpoint.prototype.stop = function(errCallback) {
 	try {
 		errCallback();
 	} finally  {

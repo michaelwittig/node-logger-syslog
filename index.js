@@ -19,7 +19,7 @@ function getSyslogLevel(level) {
 }
 
 function SyslogEndpoint(debug, info, error, critial, tag, facility, hostname, port) {
-	logger.Endpoint.call(this, debug, info, error, critial);
+	logger.Endpoint.call(this, debug, info, error, critial, "syslog:" + facility);
 	this.ain2 = new Ain2({tag: tag, facility: facility, hostname: hostname, port: port});
 }
 util.inherits(SyslogEndpoint, logger.Endpoint);

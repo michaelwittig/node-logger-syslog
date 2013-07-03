@@ -24,7 +24,7 @@ function SyslogUDPEndpoint(debug, info, error, critial, tag, facility, hostname,
 }
 util.inherits(SyslogUDPEndpoint, logger.Endpoint);
 SyslogUDPEndpoint.prototype.log = function(log, errCallback) {
-	var data = log.date.toString() + " " + log.level + ": ";
+	var data = log.level + ": ";
 	if (log.fullOrigin !== undefined) {
 		data += "(" + log.origin + " | " + log.fullOrigin.file + "[" + log.fullOrigin.fn + "]:" + log.fullOrigin.line + ") ";
 	} else if (log.origin !== undefined) {
@@ -58,7 +58,7 @@ function SyslogLocalEndpoint(debug, info, error, critial, tag, facility) {
 }
 util.inherits(SyslogLocalEndpoint, logger.Endpoint);
 SyslogLocalEndpoint.prototype.log = function(log, errCallback) {
-	var data = log.date.toString() + " " + log.level + ": ";
+	var data = log.level + ": ";
 	if (log.fullOrigin !== undefined) {
 		data += "(" + log.origin + " | " + log.fullOrigin.file + "[" + log.fullOrigin.fn + "]:" + log.fullOrigin.line + ") ";
 	} else if (log.origin !== undefined) {

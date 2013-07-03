@@ -3,9 +3,14 @@ var assert = require("assert-plus"),
 	endpoint = require("../index");
 
 describe("API", function(){
-	describe("()", function() {
+	describe("udp()", function() {
 		it("should work if all params are set", function(){
-			endpoint(true, true, true, true, "tag", "facility", "hostname", 1234);
+			endpoint.udp(true, true, true, true, "tag", "local0", "localhost", 1234);
+		});
+	});
+	describe("local()", function() {
+		it("should work if all params are set", function(){
+			endpoint.local(true, true, true, true, "tag", "local0");
 		});
 	});
 });

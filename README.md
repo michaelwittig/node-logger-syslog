@@ -52,9 +52,9 @@ Now you can log to console endpoint.
 
 ## API
 
-### (debug, info, error, critial, tag, facility, hostname, port)
+### udp(debug, info, error, critial, tag, facility, hostname, port)
 
-Sync creates a console Endpoint.
+Sync creates a syslog via UDP Endpoint.
 
 * `debug`: Boolean - true if the endpoint should log debug level
 * `info`: Boolean - true if the endpoint should log info level
@@ -64,6 +64,19 @@ Sync creates a console Endpoint.
 * `facility`: String["auth", "authpriv", "deemon", "cron", "ftp", "lpr", "kern", "mail", "news", "syslog", "user", "uucp", "local0", ... , "local7"]
 * `hostname`: String
 * `port`: Number
+
+`return`: Endpoint - Endpoint - use the endpoint like this logger.append(endpoint)
+
+### local(debug, info, error, critial, tag, facility, hostname, port)
+
+Sync creates a syslog local Endpoint.
+
+* `debug`: Boolean - true if the endpoint should log debug level
+* `info`: Boolean - true if the endpoint should log info level
+* `error`: Boolean - true if the endpoint should log error level
+* `critical`: Boolean - true if the endpoint should log critical level
+* `tag`: String Syslog allows programs to supply an identifying string, known as a tag
+* `facility`: String["auth", "authpriv", "deemon", "cron", "ftp", "lpr", "kern", "mail", "news", "syslog", "user", "uucp", "local0", ... , "local7"]
 
 `return`: Endpoint - Endpoint - use the endpoint like this logger.append(endpoint)
 

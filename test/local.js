@@ -1,7 +1,7 @@
 var assert = require("assert-plus"),
 	util = require("util"),
 	endpoint = require("../index"),
-	logger = require("cinovo-logger");
+	logger = require("cinovo-logger").createLogger();
 
 describe("local", function(){
 	it("should work if all params are set", function(done) {

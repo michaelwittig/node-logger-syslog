@@ -79,9 +79,3 @@ Sync creates a syslog local Endpoint.
 * `facility`: String["auth", "authpriv", "deemon", "cron", "ftp", "lpr", "kern", "mail", "news", "syslog", "user", "uucp", "local0", ... , "local7"]
 
 `return`: Endpoint - Endpoint - use the endpoint like this logger.append(endpoint)
-
-### Events
-
-#### stop()
-
-When the endpoint is stopped.

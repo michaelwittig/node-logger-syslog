@@ -1,5 +1,5 @@
 var util = require("util"),
-	logger = require("cinovo-logger"),
+	lib = require("cinovo-logger-lib"),
 	assert = require("assert-plus");
 
 function getSyslogLevel(level) {
@@ -18,12 +18,12 @@ function getSyslogLevel(level) {
 }
 
 function SyslogUDPEndpoint(debug, info, error, critial, tag, facility, hostname, port) {
-	logger.Endpoint.call(this, debug, info, error, critial, "syslog:" + facility);
+	lib.Endpoint.call(this, debug, info, error, critial, "syslog:" + facility);
 	var Ain2 = require("ain2");
 	this.ain2 = new Ain2({tag: tag, facility: facility, hostname: hostname, port: port});
 }
-util.inherits(SyslogUDPEndpoint, logger.Endpoint);
-SyslogUDPEndpoint.prototype.log = function(log, errCallback) {
+util.inherits(SyslogUDPEndpoint, lib.Endpoint);
+SyslogUDPEndpoint.prototype._log = function(log, callback) {
 	var data = log.level + ": ";
 	if (log.fullOrigin !== undefined) {
 		data += "(" + log.origin + " | " + log.fullOrigin.file + "[" + log.fullOrigin.fn + "]:" + log.fullOrigin.line + ") ";
@@ -35,29 +35,25 @@ SyslogUDPEndpoint.prototype.log = function(log, errCallback) {
 		try {
 		data += ", " + JSON.stringify(log.metadata);
 		} catch (err) {
-			errCallback(err);
+			callback(err);
 			return;
 		}
 	}
 	this.ain2.send(data, getSyslogLevel(log.level));
-	errCallback();
+	callback();
 };
-SyslogUDPEndpoint.prototype.stop = function(errCallback) {
-	try {
-		errCallback();
-	} finally  {
-		this.emit("stop");
-	}
+SyslogUDPEndpoint.prototype._stop = function(callback) {
+	callback();
 };
 
 
 function SyslogLocalEndpoint(debug, info, error, critial, tag, facility) {
-	logger.Endpoint.call(this, debug, info, error, critial, "syslog:" + facility);
+	lib.Endpoint.call(this, debug, info, error, critial, "syslog:" + facility);
 	this.posix = require("posix");
 	this.posix.openlog(tag, {cons: false, ndelay: true, nowait: true, pid: true}, facility);
 }
-util.inherits(SyslogLocalEndpoint, logger.Endpoint);
-SyslogLocalEndpoint.prototype.log = function(log, errCallback) {
+util.inherits(SyslogLocalEndpoint, lib.Endpoint);
+SyslogLocalEndpoint.prototype._log = function(log, callback) {
 	var data = log.level + ": ";
 	if (log.fullOrigin !== undefined) {
 		data += "(" + log.origin + " | " + log.fullOrigin.file + "[" + log.fullOrigin.fn + "]:" + log.fullOrigin.line + ") ";
@@ -69,20 +65,16 @@ SyslogLocalEndpoint.prototype.log = function(log, errCallback) {
 		try {
 			data += ", " + JSON.stringify(log.metadata);
 		} catch (err) {
-			errCallback(err);
+			callback(err);
 			return;
 		}
 	}
 	this.posix.syslog(getSyslogLevel(log.level), data);
-	errCallback();
+	callback();
 };
-SyslogLocalEndpoint.prototype.stop = function(errCallback) {
+SyslogLocalEndpoint.prototype._stop = function(callback) {
 	this.posix.closelog();
-	try {
-		errCallback();
-	} finally  {
-		this.emit("stop");
-	}
+	callback();
 };
 
 exports.local = function(debug, info, error, critial, tag, facility) {

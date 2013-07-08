@@ -33,7 +33,7 @@ var logger = require("cinovo-logger");
 In your JavaScript code append the syslog endpoint.
 
 `````javascript
-logger.append(require("cinovo-logger-syslog")(true, true, true, true, TODO));
+logger.append(require("cinovo-logger-syslog").local(true, true, true, true, "test", "local0"));
 `````
 
 ### Log something
@@ -48,7 +48,7 @@ logger.critical("myscript", "all values are not ok", {a: 10, b: 20}, function(er
 
 ### Done
 
-Now you can log to console endpoint.
+Now you can log to local syslog endpoint.
 
 ## API
 

@@ -10,6 +10,9 @@
                                                                       \_/__/  \_/__/
 `````
 
+[![Build Status](https://secure.travis-ci.org/cinovo/node-logger-syslog.png)](http://travis-ci.org/cinovo/node-logger-syslog)
+[![NPM version](https://badge.fury.io/js/cinovo-logger-syslog.png)](http://badge.fury.io/js/cinovo-logger-syslog)
+
 # cinovo-logger-syslog
 
 Syslog endpoint for [cinovo-logger](https://github.com/cinovo/node-logger).

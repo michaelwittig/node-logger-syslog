@@ -1,6 +1,6 @@
 {
 	"name": "cinovo-logger-syslog",
-	"version": "0.4.3",
+	"version": "0.4.4",
 	"description": "Syslog endpoint for cinovo-logger.",
 	"keywords": [
 		"logger",

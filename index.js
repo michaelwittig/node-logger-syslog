@@ -57,12 +57,7 @@ SyslogLocalEndpoint.prototype._log = function(log, callback) {
 	}
 	data += log.message;
 	if (log.metadata) {
-		try {
-			data += ", " + JSON.stringify(log.metadata);
-		} catch (err) {
-			callback(err);
-			return;
-		}
+		data += ", " + lib.safejson(log.metadata);
 	}
 	this.posix.syslog(getSyslogLevel(log.level), data);
 	callback();

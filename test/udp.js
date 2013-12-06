@@ -18,4 +18,21 @@ describe("local", function(){
 			});
 		})
 	});
+	it("circular metadata", function(done) {
+		var logger = require("cinovo-logger").createLogger();
+		logger.append(endpoint.udp(true, true, true, true, "tag", "local0", "localhost", 514));
+		var metadata = {a: 1};
+		metadata.b = metadata;
+		logger.debug("test", "hello", metadata, function(err) {
+			if (err) {
+				throw err;
+			}
+			logger.stop(function(err) {
+				if (err) {
+					throw err;
+				}
+				done();
+			});
+		})
+	});
 });

@@ -12,6 +12,7 @@
 
 [![Build Status](https://secure.travis-ci.org/cinovo/node-logger-syslog.png)](http://travis-ci.org/cinovo/node-logger-syslog)
 [![NPM version](https://badge.fury.io/js/cinovo-logger-syslog.png)](http://badge.fury.io/js/cinovo-logger-syslog)
+[![NPM dependencies](https://david-dm.org/cinovo/node-logger-syslog.png)](https://david-dm.org/cinovo/node-logger-syslog)
 
 # cinovo-logger-syslog
 

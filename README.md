@@ -10,13 +10,13 @@
                                                                       \_/__/  \_/__/
 `````
 
-[![Build Status](https://secure.travis-ci.org/cinovo/node-logger-syslog.png)](http://travis-ci.org/cinovo/node-logger-syslog)
+[![Build Status](https://secure.travis-ci.org/michaelwittig/node-logger-syslog.png)](http://travis-ci.org/michaelwittig/node-logger-syslog)
 [![NPM version](https://badge.fury.io/js/cinovo-logger-syslog.png)](http://badge.fury.io/js/cinovo-logger-syslog)
-[![NPM dependencies](https://david-dm.org/cinovo/node-logger-syslog.png)](https://david-dm.org/cinovo/node-logger-syslog)
+[![NPM dependencies](https://david-dm.org/michaelwittig/node-logger-syslog.png)](https://david-dm.org/michaelwittig/node-logger-syslog)
 
 # cinovo-logger-syslog
 
-Syslog endpoint for [cinovo-logger](https://github.com/cinovo/node-logger).
+Syslog endpoint for [cinovo-logger](https://github.com/michaelwittig/node-logger).
 
 ## Getting started
 
